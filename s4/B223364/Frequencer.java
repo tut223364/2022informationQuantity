@@ -44,10 +44,12 @@ public class Frequencer implements FrequencerInterface {
         int spaceLength = mySpace.length;
         int count = 0;
 	if(debugMode) { showVariables(); }
-        for(int start = 0; start<spaceLength; start++) { // Is it OK?
+        for(int start = 0; start< (spaceLength - targetLength); start++) { // Is it OK?
+            //spaceLengthからtargetLengthを引く
             boolean abort = false;
             for(int i = 0; i<targetLength; i++) {
                 if(myTarget[i] != mySpace[start+i]) { abort = true; break; }
+                //ここでspaceLengthを超えないようにする
             }
             if(abort == false) { count++; }
         }
